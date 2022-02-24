@@ -1,0 +1,9 @@
+@extends('layouts.adviser')
+@section('header')
+    Dashboard
+@endsection
+@section('content')
+    <div>
+        dashboard
+    </div>
+@endsection
