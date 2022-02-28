@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
         @foreach ($sections as $key => $section)
-            <div wire:key="{{ $key }}"
+            <div x-on:click="window.location.href='{{route('adviser.my-section',['id'=>$section->id])}}'" wire:key="{{ $key }}" 
                 class="relative  border border-green-400 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 ">
                 <div class="flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg"

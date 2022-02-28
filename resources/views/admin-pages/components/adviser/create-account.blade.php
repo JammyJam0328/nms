@@ -1,9 +1,11 @@
 <div>
     <form class="space-y-8 divide-y divide-gray-200">
         <div class="space-y-8 divide-y divide-gray-200">
-            <div>
+            <div class="bg-white shadow-lg">
+                <div class="bg-green-800 h-1 w-full"></div>
+               <div class="p-4">
                 <div>
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
+                    <h3 class="text-lg font-bold leading-6 text-gray-800">Personal Information</h3>
                 </div>
                 <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div class="sm:col-span-2">
@@ -104,6 +106,7 @@
                         @enderror
                     </div>
                 </div>
+               </div>
             </div>
 
 

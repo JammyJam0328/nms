@@ -21,7 +21,7 @@
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                 <div class="overflow-hidden border-2 border-green-500 ">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-yellow-500">
+                        <thead class="bg-gray-700">
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-xs font-medium tracking-wider text-left text-white uppercase">
@@ -75,10 +75,31 @@
 
                                         <button type="button"
                                             wire:click.prevent="edit('{{ $student->id }}')"
-                                            class="text-yellow-500 hover:text-indigo-900">Edit</button>
+                                            class="text-yellow-500 hover:text-indigo-900"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-edit-3">
+                                            <path d="M12 20h9"></path>
+                                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
+                                            </path>
+                                        </svg></button>
                                         <button type="button"
                                             x-on:click.prevent="if(confirm('Are you sure?')){$wire.deleteStudent('{{ $student->id }}')}"
-                                            class="text-red-600 hover:text-indigo-900">Delete</button>
+                                            class="text-red-600 hover:text-indigo-900">
+                                            <svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-trash-2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                                        </svg>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach

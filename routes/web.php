@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdviserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
             break;
         case 'adviser':
             return redirect()->route('adviser.dashboard');
+            break;
+        case 'student':
+            return redirect()->route('student.dashboard');
             break;
         default:
             return redirect('/login');
@@ -59,5 +62,18 @@ Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->
     Route::get('/my-students',function(){
         return view('adviser-pages.my-students');
     })->name('adviser.my-students');
+    Route::get('/my-students/section/{id}',  [AdviserController::class, 'section']
+    )->name('adviser.my-section');
+    Route::get('/monitor-students', function () {
+        return view('adviser-pages.monitoring');
+     })->name('adviser.monitoring');
+    
+});
+
+Route::prefix('student')->middleware(['auth:sanctum', 'verified','isStudent'])->group(function () {
+    Route::get('/', function () {
+       return view('student-pages.dashboard');
+    })->name('student.dashboard');
+   
     
 });
