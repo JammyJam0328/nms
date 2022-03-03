@@ -43,20 +43,23 @@ class ManageParents extends Component
             'contact_number' => 'required',
             'relationship' => 'required',
         ]);
-        $parent = StudentParent::create([
+    
+        $email = str_replace(' ', '', $this->first_name.$this->middle_name.$this->last_name).'@gmail.com';
+        $user = User::create([
+            'name'=>$this->first_name.' '.$this->last_name,
+            'email'=>$email,
+            'password'=>bcrypt($this->contact_number),
+            'role'=>'parent',
+        ]);
+
+        StudentParent::create([
+            'user_id'=>$user->id,
             'student_id'=>$this->student->id,
             'first_name'=>$this->first_name,
             'middle_name'=>$this->middle_name,
             'last_name'=>$this->last_name,
             'contact_number'=>$this->contact_number,
             'relationship'=>$this->relationship
-        ]);
-        $email = str_replace(' ', '', $this->first_name.$this->middle_name.$this->last_name).'@gmail.com';
-        User::create([
-            'name'=>$this->first_name.' '.$this->last_name,
-            'email'=>$email,
-            'password'=>bcrypt($this->contact_number),
-            'role'=>'parent',
         ]);
 
         $this->reset([
@@ -67,8 +70,75 @@ class ManageParents extends Component
             'relationship',
         ]);
 
-        $this->dispatchBrowserEvent('alert',[
+        $this->dispatchBrowserEvent('notify',[
             'message'=>'Parent Added Successfully',
+            'type'=>'success',
+            'nextAction'=>''
+        ]);
+    }
+    public $edit_id;
+    public function getParentProperty()
+    {
+        return StudentParent::find($this->edit_id);
+    }
+
+    public $new_first_name;
+    public $new_middle_name;
+    public $new_last_name;
+    public $new_contact_number;
+    public $new_relationship;
+    public function edit($id)
+    {
+        $this->edit_id=$id;
+        $this->new_first_name=$this->parent->first_name;
+        $this->new_middle_name=$this->parent->middle_name;
+        $this->new_last_name=$this->parent->last_name;
+        $this->new_contact_number=$this->parent->contact_number;
+        $this->new_relationship=$this->parent->relationship;
+        $this->dispatchBrowserEvent('start-editing');
+    }
+
+    public function update()
+    {
+        $this->validate([
+            'new_first_name' => 'required',
+            'new_middle_name' => 'nullable',
+            'new_last_name' => 'required',
+            'new_contact_number' => 'required',
+            'new_relationship' => 'required',
+        ]);
+
+        $this->parent->update([
+            'first_name'=>$this->new_first_name,
+            'middle_name'=>$this->new_middle_name,
+            'last_name'=>$this->new_last_name,
+            'contact_number'=>$this->new_contact_number,
+            'relationship'=>$this->new_relationship
+        ]);
+
+        $this->reset([
+            'new_first_name',
+            'new_middle_name',
+            'new_last_name',
+            'new_contact_number',
+            'new_relationship',
+        ]);
+
+        $this->dispatchBrowserEvent('notify',[
+            'message'=>'Parent Updated Successfully',
+            'type'=>'success',
+            'nextAction'=>''
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $parent = StudentParent::find($id);
+        $parent->user()->delete();
+        $parent->delete();
+       
+        $this->dispatchBrowserEvent('notify',[
+            'message'=>'Parent Deleted Successfully',
             'type'=>'success',
             'nextAction'=>''
         ]);

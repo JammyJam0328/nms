@@ -50,8 +50,12 @@
                                         {{ $parent->relationship }}</td>
 
                                     <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <a href="#"
-                                            class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <a wire:click.prevent="edit({{ $parent->id }})"
+                                            href="#"
+                                            class="text-yellow-600 hover:text-yellow-900">Edit</a>
+                                        <a x-on:click.prevent="if(confirm('Are you sure you want to delete?')) $wire.delete({{ $parent->id }})"
+                                            href="#"
+                                            class="text-red-600 hover:text-red-900">delete</a>
                                     </td>
                                 </tr>
                             @endforeach

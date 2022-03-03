@@ -1,5 +1,20 @@
-<div x-data="{action:''}"
-    x-on:alert.window="action = event.detail.nextAction">
+<div x-data="{action:'',alert:false}"
+    x-on:notify.window="alert=true; action=event.detail.nextAction;
+        document.querySelector('#type').innerHTML = event.detail.type;
+        document.querySelector('#message').innerHTML=event.detail.message;
+        setTimeout(function(){
+            alert=false;
+        },2000);"
+    x-on:start-editing="action='edit'">
+    <div x-cloak
+        x-show="alert">
+        <div class="flex justify-between p-3 mb-2 text-white bg-green-500 shadow-inner">
+            <p class="self-center">
+                <strong class="uppercase"
+                    id="type"></strong> <span id="message"></span>
+            </p>
+        </div>
+    </div>
     <div class="space-y-2">
         <div>
             <label for="student"
@@ -139,6 +154,10 @@
                     <div x-cloak
                         x-show="action=='add'">
                         @include('admin-pages.components.parents.create')
+                    </div>
+                    <div x-cloak
+                        x-show="action=='edit'">
+                        @include('admin-pages.components.parents.edit')
                     </div>
                 </div>
             @endif

@@ -1,11 +1,9 @@
 <?php
 
-use App\Helper;
+namespace App\Helper;
 
 Class Heightage{
-    public static function get($height,$sex){
-        
-    }
+
 
     public static function getMale($height){
        if($year == 12 && $months == 0){
@@ -1391,6 +1389,5 @@ Class Heightage{
                     return "Tall";
                 }
             }
-
     }
 }
