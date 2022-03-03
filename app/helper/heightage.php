@@ -3,11 +3,6 @@
 namespace App\Helper;
 
 Class Heightage{
-<<<<<<< Updated upstream:helper/heightage.php
-
-=======
->>>>>>> Stashed changes:app/helper/heightage.php
-
 
     public static function getMale($year,$months,$height){
        if($year == 12 && $months == 0){
@@ -1393,8 +1388,6 @@ Class Heightage{
                     return "Tall";
                 }
             }
-<<<<<<< Updated upstream:helper/heightage.php
-=======
             //12
             if($year==12 && $months==7){
                 if($height<=133.6){
@@ -2573,8 +2566,5 @@ Class Heightage{
 
 
              
-
-
->>>>>>> Stashed changes:app/helper/heightage.php
     }
 }
