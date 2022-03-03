@@ -53,6 +53,10 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
     Route::get('/meal-plan',function(){
         return view('admin-pages.meal-plan');
     })->name('admin.meal-plan');
+    
+     Route::get('/manage/parents',function(){
+        return view('admin-pages.parents');
+    })->name('admin.parents');
 });
 
 Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->group(function () {
