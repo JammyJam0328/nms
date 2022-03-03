@@ -1286,6 +1286,111 @@ Class Heightage{
 
     
     public static function getFemale($height){
-        
+            if($year==12 && $months==0){
+                if($height<=130.6){
+                    return "Severely stunted";
+                }
+                elseif($height>=130.7 && $height<=137.5){
+                    return "Stunted";
+                }
+                elseif($height>=137.6 && $height<=164.9){
+                    return "Normal";
+                }
+                elseif($height>=165.0){
+                    return "Tall";
+                }
+               
+            }
+            if($year==12 && $months==1){
+                if($height<=131.1){
+                    return "Severely stunted";
+                }
+                elseif($height>=131.2 && $height<=137.9){
+                    return "Stunted";
+                }
+                elseif($height>=138.0 && $height<=165.4){
+                    return "Normal";
+                }
+                elseif($height>=165.5){
+                    return "Tall";
+                }
+            }
+
+            if($year==12 && $months==2){
+                if($height<=131.5){
+                    return "Severely stunted";
+                }
+                elseif($height>=131.6 && $height<=138.4){
+                    return "Stunted";
+                }
+                elseif($height>=138.5 && $height<=165.9){
+                    return "Normal";
+                }
+                elseif($height>=166.0){
+                    return "Tall";
+                }
+              
+            }
+
+            if($year==12 && $months==3){
+                if($height<=131.9){
+                    return "Severely stunted";
+                }
+                elseif($height>=132.0 && $height<=138.8){
+                    return "Stunted";
+                }
+                elseif($height>=138.9 && $height<=166.4){
+                    return "Normal";
+                }
+                elseif($height>=166.5){
+                    return "Tall";
+                }
+            }
+
+            if($year==12 && $months==4){
+                if($height<=132.4){
+                    return "Severely stunted";
+                }
+                elseif($height>=132.5 && $height<=139.2){
+                    return "Stunted";
+                }
+                elseif($height>=139.3 && $height<=166.9){
+                    return "Normal";
+                }
+                elseif($height>=167.0){
+                    return "Tall";
+                }
+            }
+
+            if($year==12 && $months==5){
+                if($height<=132.8){
+                    return "Severely stunted";
+                }
+                elseif($height>=132.9 && $height<=139.7){
+                    return "Stunted";
+                }
+                elseif($height>=139.8 && $height<=167.4){
+                    return "Normal";
+                }
+                elseif($height>=167.5){
+                    return "Tall";
+                }
+            }
+
+            if($year==12 && $months==6){
+                if($height<=133.2){
+                    return "Severely stunted";
+                }
+                elseif($height>=133.3 && $height<=140.1){
+                    return "Stunted";
+                }
+                elseif($height>=140.2 && $height<=167.8){
+                    return "Normal";
+                }
+                elseif($height>=167.9){
+                    return "Tall";
+                }
+            }
+
     }
 }
