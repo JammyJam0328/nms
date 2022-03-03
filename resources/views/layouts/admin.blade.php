@@ -679,13 +679,10 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                        <span
-                                            class="bg-gray-400 text-white  ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full">
-                                            3
-                                        </span>
+                                        
                                     </a>
                                     <a href="{{ route('admin.parents') }}"
-                                        class="flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
+                                        class="{{ Request::routeIs('admin.parents') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
                                         <!-- Heroicon name: outline/users -->
 
                                         <span class="flex-1 pl-10 font-bold uppercase ">
@@ -693,10 +690,7 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                        <span
-                                            class="bg-gray-400 text-white  ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full">
-                                            3
-                                        </span>
+                                       
                                     </a>
                                     <a href="{{ route('admin.students') }}"
                                         class="{{ Request::routeIs('admin.students') ? 'bg-green-200' : '' }} text-gray-600  rounded-b-md hover:bg-green-50 group flex items-center px-2 py-3 text-sm font-medium">
@@ -707,10 +701,7 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                        <span
-                                            class="bg-gray-400 text-white  ml-3 inline-block py-0.5 px-3 text-xs font-medium rounded-full">
-                                            3
-                                        </span>
+                                       
                                     </a>
 
 

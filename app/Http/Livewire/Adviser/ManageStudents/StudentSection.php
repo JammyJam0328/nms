@@ -9,6 +9,7 @@ use App\Models\Section;
 use App\Models\SectionStudent;
 use Carbon\Carbon;
 use App\Models\BMI;
+use App\Helper\Heightage;
 
 class StudentSection extends Component
 {
@@ -22,6 +23,7 @@ class StudentSection extends Component
     public $weight;
     public $student_id;
     public $bmi_result_panel = false;
+    
     public $bmi_result;
 
  
@@ -77,15 +79,23 @@ class StudentSection extends Component
         $this->name = $data->student->first_name." ".$data->student->last_name;
         $this->sex = $data->student->sex;
         $this->section_id = $id;
+
     }
     
     public function showBMI(){
-
+        $stud = Student::where('id', $this->section_id)->first();
+        // dd();
+        // $hfa = Heightage::getFemale("17","6","174");   
+        
+        
+        // dd($hfa);
+    
           $h = $this->height*$this->height;
         $w = $this->weight;
         $bmi = $w/$h;
         // dd($bmi);
         
+       
         
         if ($bmi < 16) {
            $this->bmi_result = "Severely underweight";
@@ -99,16 +109,27 @@ class StudentSection extends Component
             $this->bmi_result = "Obese";
         }
 
+        // dd($this->bmi_result);
+
         $this->validate([
             'height' => 'required',
             'weight' => 'required',
         ]);
+
+        if ($stud->sex == "male") {
+            $hfa = Heightage::getMale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height);
+        }else{
+           $hfa = Heightage::getFemale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height);
+       
+        }
+
         BMI::create([
             'height' => $this->height,
             'weight' => $this->weight,
             'bmi' => $bmi,
             'status' => $this->bmi_result,
             'section_student_id' => $this->section_id,
+            'height_for_age' => $hfa,
         ]);
         $this->emit('addBMI');
 

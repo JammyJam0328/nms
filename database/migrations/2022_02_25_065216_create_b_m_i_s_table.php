@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('weight')->default(0);
             $table->string('status')->nullable();
             $table->float('bmi')->nullable();
-            $table->float('height_for_age')->nullable();
+            $table->string('height_for_age')->nullable();
             $table->timestamps();
         });
     }
