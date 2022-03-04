@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meal_plans', function (Blueprint $table) {
+        Schema::create('food', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('meal_type_id');
-            $table->string('day');
-            $table->string('meal_time');
+            $table->unsignedBigInteger('meal_plan_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meal_plans');
+        Schema::dropIfExists('food');
     }
 };

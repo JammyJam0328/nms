@@ -15,4 +15,11 @@ class MealPlan extends Model
     {
         return $this->belongsTo(MealType::class);
     }
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
+
+    
 }

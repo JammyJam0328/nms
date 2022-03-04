@@ -26,11 +26,11 @@ class StudentDashboard extends Component
     }
     
     public function getMeal(){
-      if ($this->status == 'Obese' && $this->status == 'Overweight') {
+        if ($this->status == 'Obese' && $this->status == 'Overweight') {
           return MealPlan::where('meal_type_id', 1)->get()->chunk(3);
-      }else{
-      return MealPlan::where('meal_type_id', 2)->get()->chunk(3);
-    }
+        }else{
+         return MealPlan::where('meal_type_id', 2)->get()->chunk(3);
+        }
     }
 
     public function showMealPlan($status)

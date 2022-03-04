@@ -98,186 +98,589 @@ class MealSeeder extends Seeder
     // unpolished rice 
     // fresh pineapple
 
-        $reducingDiets = MealType::create([
+         $mealPlan = $reducingDiets = MealType::create([
             'description' => 'Reducing Diets',
         ]);
         // day 1 to 5
         // day 1
-        $reducingDiets->mealPlans()->create([
+       $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Banana, Low-fat potato egg omelet, Whole wheat bread, Unpolished rice, Salabat',
+           
         ]);
-        $reducingDiets->mealPlans()->create([
+        $foods = [
+            'Banana',
+            'Low-fat potato egg omelet',
+            'Whole wheat bread',
+            'Unpolished rice',
+            'Salabat',
+        ];
+        
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Lunch',
-            'foods'=> 'Low-fat tokwa adobo, Sautéed squash and string beans, unpolished rice, Boiled nuts',
+          
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Low-fat tokwa adobo',
+            'Sautéed squash and string beans',
+            'unpolished rice',
+            'Boiled nuts',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Supper',
-            'foods'=> 'Low fat veggie meat with white sauce, unpolished rice, fresh pineapple',
+           
         ]);
+
+        $foods = [
+            'Low fat veggie meat with white sauce',
+            'unpolished rice',
+            'fresh pineapple',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         // day 2
-        $reducingDiets->mealPlans()->create([
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Papaya, grilled Vegetarian tocino, Boiled camote, Unpolished rice, Warm skim or low-fat milk (No sugar)',
+          
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Papaya',
+            'grilled Vegetarian tocino',
+            'Boiled camote',
+            'Unpolished rice',
+            'Warm skim or low-fat milk (No sugar)',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Lunch',
-            'foods'=> 'Low fat sweet and sour  gluten, boiled camote tops, unpolished rice, boiled nuts',
+          
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Low fat sweet and sour  gluten',
+            'boiled camote tops',
+            'unpolished rice',
+            'boiled nuts',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Supper',
-            'foods'=> 'low-fat sautéed mango beans, unpolished rice, fruit gulaman delight',
+           
         ]);
+
+        $foods = [
+            'low-fat sautéed mango beans',
+            'unpolished rice',
+            'fruit gulaman delight',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+        
 
         // day 3
-        $reducingDiets->mealPlans()->create([
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Apple, Low-fat tempura chunks, Unpolished rice, Salabat',
+           
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Apple',
+            'Low-fat tempura chunks',
+            'Unpolished rice',
+            'Salabat',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Lunch',
-            'foods'=> 'Low fat vegetarian afritada, boiled malunggay, unpolished rice, soy milk',
+            
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Low fat vegetarian afritada',
+            'boiled malunggay',
+            'unpolished rice',
+            'soy milk',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Supper',
-            'foods'=> 'chili beans, unpolished rice, fresh buko',
+          
         ]);
+
+        $foods = [
+            'chili beans',
+            'unpolished rice',
+            'fresh buko',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         // day 4
-        $reducingDiets->mealPlans()->create([
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 4',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Apple, Tempura chunks, Pandesal with cheese, Champorado (no sugar), Salabat',
-        ]);
-        $reducingDiets->mealPlans()->create([
-            'day' => 'Day 4',
-            'meal_time' => 'Lunch',
-            'foods'=> 'Hawaiian gluten steak, Baked or roasted nuts, unpolished rice, Boiled camote',
-        ]);
-        $reducingDiets->mealPlans()->create([
-            'day' => 'Day 4',
-            'meal_time' => 'Supper',
-            'foods'=> 'Sautéed mongo beans, unpolished rice, Diabetic gulaman delight',
+           
         ]);
 
+        $foods = [
+            'Apple',
+            'Tempura chunks',
+            'Pandesal with cheese',
+            'Champorado (no sugar)',
+            'Salabat',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+
+
+         $mealPlan = $reducingDiets->mealPlans()->create([
+            'day' => 'Day 4',
+            'meal_time' => 'Lunch',
+           
+        ]);
+
+        $foods = [
+            'Hawaiian gluten steak',
+            'Baked or roasted nuts',
+            'unpolished rice',
+            'Boiled camote',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+         $mealPlan = $reducingDiets->mealPlans()->create([
+            'day' => 'Day 4',
+            'meal_time' => 'Supper',
+           
+        ]);
+
+        $foods = [
+            'Sautéed mongo beans',
+            'unpolished rice',
+            'Diabetic gulaman delight',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+
         // day 5
-        $reducingDiets->mealPlans()->create([
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Banana, potato egg omelet, Whole wheat bread with margarine, Unpolished rice, soy coffee low fat milk (no sugar)',
+           
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Banana',
+            'potato egg omelet',
+            'Whole wheat bread with margarine',
+            'Unpolished rice',
+            'soy coffee low fat milk (no sugar)',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Lunch',
-            'foods'=> 'Tokwa adobo, Sautéed squash and string beans, unpolished rice, Boiled nuts',
+            
         ]);
-        $reducingDiets->mealPlans()->create([
+
+        $foods = [
+            'Tokwa adobo',
+            'Sautéed squash and string beans',
+            'unpolished rice',
+            'Boiled nuts',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+         $mealPlan = $reducingDiets->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Supper',
-            'foods'=> 'Ginataang veggie meat, unpolished rice, fresh pineapple',
+           
         ]);
+
+        $foods = [
+            'Ginataang veggie meat',
+            'unpolished rice',
+            'fresh pineapple',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         $undernourishedOrUnderweight = MealType::create([
             'description' => 'Undernourished or Underweight',
         ]);
 
         // day 1
-        $undernourishedOrUnderweight->mealPlans()->create([
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Banana, potato egg omelet, Whole wheat bread with margarine, Unpolished rice, soy coffee low fat milk (no sugar)',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Banana',
+            'potato egg omelet',
+            'Whole wheat bread with margarine',
+            'Unpolished rice',
+            'soy coffee low fat milk (no sugar)',
+        ];
+        
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+        
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Lunch',
-            'foods'=> 'Kare-kare, boiled camote, unpolished rice, any fruits or papaya',
+          
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Kare-kare',
+            'boiled camote',
+            'unpolished rice',
+            'any fruits or papaya',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 1',
             'meal_time' => 'Supper',
-            'foods'=> 'Ginataang veggie meat, unpolished rice, fresh pineapple',
+           
         ]);
+
+        $foods = [
+            'Ginataang veggie meat',
+            'unpolished rice',
+            'fresh pineapple',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
 
         // day 2
-        $undernourishedOrUnderweight->mealPlans()->create([
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Papaya, Fried beef tocino with Unpolished rice, Boiled camote with peanut butter, Warm or low-fat skim milk (No sugar)',
+          
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Papaya',
+            'Fried beef tocino with Unpolished rice',
+            'Boiled camote with peanut butter',
+            'Warm or low-fat skim milk (No sugar)',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Lunch',
-            'foods'=> 'Sweet and sour  gluten, boiled camote tops, unpolished rice, baked nuts with or without butter',
+          
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Sweet and sour  gluten',
+            'boiled camote tops',
+            'unpolished rice',
+            'baked nuts with or without butter',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 2',
             'meal_time' => 'Supper',
-            'foods'=> 'chopsuey, unpolished rice with fried fish, ripe mango',
+           
         ]);
+
+        $foods = [
+            'chopsuey',
+            'unpolished rice with fried fish',
+            'ripe mango',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         // day 3
-        $undernourishedOrUnderweight->mealPlans()->create([
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Apple, Low cholesterol tempura chunks, pandesal with jelly, low fat champorado (no sugar)',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Apple',
+            'Low cholesterol tempura chunks',
+            'pandesal with jelly',
+            'low fat champorado (no sugar)',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Lunch',
-            'foods'=> 'Jam sandwich and juice, Low fat vegetarian afritada, boiled malunggay, unpolished rice, soy milk',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Jam sandwich and juice',
+            'Low fat vegetarian afritada',
+            'boiled malunggay',
+            'unpolished rice',
+            'soy milk',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 3',
             'meal_time' => 'Supper',
-            'foods'=> 'chili beans, unpolished rice, fresh buko',
+            
         ]);
+
+        $foods = [
+            'chili beans',
+            'unpolished rice',
+            'fresh buko',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         // day 4
-        $undernourishedOrUnderweight->mealPlans()->create([
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 4',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Banana, Scrambled eggs with tomatoes, Fried fish, Unpolished rice, milk ( no sugar )',
+          
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Banana',
+            'Scrambled eggs with tomatoes',
+            'Fried fish',
+            'Unpolished rice',
+            'milk ( no sugar )',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 4',
             'meal_time' => 'Lunch',
-            'foods'=> 'Chicken curry, Cucumber salad, unpolished rice, boiled nuts',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Chicken curry',
+            'Cucumber salad',
+            'unpolished rice',
+            'boiled nuts',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 4',
             'meal_time' => 'Supper',
-            'foods'=> 'chopsuey, unpolished rice with fried fish, ripe mango',
+           
         ]);
+
+        $foods = [
+            'chopsuey',
+            'unpolished rice with fried fish',
+            'ripe mango',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
 
         // day 5
-        $undernourishedOrUnderweight->mealPlans()->create([
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Breakfast',
-            'foods'=> 'Pineapple, Chicken adobo with Unpolished rice, Radish salad, Warm or low-fat skim milk (No sugar)',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Pineapple',
+            'Chicken adobo with Unpolished rice',
+            'Radish salad',
+            'Warm or low-fat skim milk (No sugar)',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Lunch',
-            'foods'=> 'Kare-kare, boiled camote, unpolished rice, any fruits or papaya',
+           
         ]);
-        $undernourishedOrUnderweight->mealPlans()->create([
+
+        $foods = [
+            'Kare-kare',
+            'boiled camote',
+            'unpolished rice',
+            'any fruits or papaya',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
+
+        $mealPlan = $undernourishedOrUnderweight->mealPlans()->create([
             'day' => 'Day 5',
             'meal_time' => 'Supper',
-            'foods'=> 'Ginataang veggie meat, unpolished rice, fresh pineapple',
+           
         ]);
+
+        $foods = [
+            'Ginataang veggie meat',
+            'unpolished rice',
+            'fresh pineapple',
+        ];
+
+        foreach($foods as $food){
+            $mealPlan->foods()->create([
+                'name' => $food,
+            ]);
+        }
         
-
-
-
     }
 }

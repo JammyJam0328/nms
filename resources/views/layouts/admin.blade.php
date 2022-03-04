@@ -26,7 +26,7 @@
         defer></script>
 </head>
 
-<body class="h-full font-sans antialiased ">
+<body class="h-full font-sans ">
     {{-- <div id="app">
         <div>
             <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
@@ -454,7 +454,7 @@
                         alt="Workflow">
                 </div>
                 <div class="flex-1 h-0 mt-5 overflow-y-auto">
-                    <nav class="px-2 space-y-1">
+                    <nav class="relative px-2 space-y-1">
                         <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 " -->
                         <a href="#"
                             class="flex items-center px-2 py-3 text-base font-medium text-gray-900 bg-gray-100 rounded-md group">
@@ -561,6 +561,9 @@
                             </svg>
                             Reports
                         </a>
+                        <div class="bottom-0 w-full py-2 text-sm text-center ">
+                            Creative Tim : <span class="text-green-400">Tailwind CSS template</span>
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -585,7 +588,7 @@
                 </div>
                 <div class="flex flex-col flex-grow mt-8">
 
-                    <nav class="flex-1 px-2 space-y-3 "
+                    <nav class="relative flex-1 px-2 space-y-3"
                         aria-label="Sidebar">
                         <h1 class="pl-1 text-sm font-bold uppercase border-b text-gray-50">Admin</h1>
                         <div>
@@ -869,6 +872,9 @@
                             <!-- Expandable link section, show/hide based on state. -->
 
                         </div>
+                        <span class="absolute text-sm text-white bottom-1">By: Creative Tim <span
+                                class="italic">Tailwind CSS Template
+                                2020</span></span>
                     </nav>
                 </div>
             </div>
@@ -980,7 +986,6 @@
                     </div>
                 </div>
             </div>
-
             <main class="flex-1">
                 <div class="py-6">
                     <div class="px-4 mx-auto mb-5 max-w-7xl sm:px-6 md:px-8">
@@ -990,6 +995,7 @@
                         @yield('content')
                     </div>
                 </div>
+
             </main>
         </div>
     </div>
