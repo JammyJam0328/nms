@@ -12,6 +12,6 @@ class BMI extends Model
 
     public function sectionstudent()
     {
-        return $this->belongsTo(SectionStudent::class);
+        return $this->belongsTo(SectionStudent::class,'id','id');
     }
 }

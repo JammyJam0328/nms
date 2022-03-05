@@ -14,7 +14,7 @@ use App\Http\Controllers\AdviserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -57,6 +57,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
      Route::get('/manage/parents',function(){
         return view('admin-pages.parents');
     })->name('admin.parents');
+     Route::get('/reports',function(){
+        return view('admin-pages.reports');
+    })->name('admin.reports');
 });
 
 Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->group(function () {
