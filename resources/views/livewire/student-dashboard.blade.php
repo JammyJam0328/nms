@@ -43,6 +43,7 @@
                                     </svg>
                                     <span wire:key="title-{{ [...$meal][0]->id }}{{ [...$meal][0]->day }}"
                                         class="uppercase">{{ [...$meal][0]->day }}</span>
+
                                 </h1>
                                 <button @click="isopen=!isopen">
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -69,63 +70,101 @@
                                         x-on:click.away="isOpen=false"
                                         wire:key="day-{{ $key }}">
                                         <div
-                                            class="flex justify-between px-2 font-bold text-white uppercase bg-gray-500">
+                                            class="flex justify-between px-2 py-2 font-bold text-white uppercase bg-gray-500">
                                             <span>{{ $item->meal_time }}*</span>
-                                          
+
+
                                         </div>
                                         <div>
                                             <div class="py-1 border-b border-l border-r">
                                                 @foreach ($item->foods as $key => $food)
                                                     <div wire:key="{{ $key }}-food"
-                                                        class="flex justify-between px-2 bg-white">
-                                                        <span> {{ $food->name }}</span> 
+                                                        class="flex justify-between px-2 bg-white ">
+                                                        <span> {{ $food->name }}</span>
+
                                                     </div>
                                                 @endforeach
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                 @endforeach
+                                <div>
+                                    @if (in_array([...$meal][0]->id, $dones))
+                                        <div class="text-white bg-gray-600 p-1 rounded-md text-center">
+                                            Done
+                                        </div>
+                                    @else
+                                        <div class="my-2">
+                                            <button type="button"
+                                                wire:click.prevent="done('{{ [...$meal][0]->id }}')"
+                                                class="text-white bg-green-600 p-1 rounded-md focus:bg-green-500">
+                                                Mark as done
+                                            </button>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </section>
-
-            <!-- Comments-->
-
         </div>
-
-        <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
+        <section aria-labelledby="timeline-title"
+            class="lg:col-start-3 lg:col-span-1">
             <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
-                <h2 id="timeline-title" class="text-lg font-extrabold border-b text-gray-900">MY BMIs</h2>
+                <h2 id="timeline-title"
+                    class="text-lg font-extrabold border-b text-gray-900">MY BMIs</h2>
 
                 <!-- Activity Feed -->
                 <div>
-                    <ul role="list" class="divide-y divide-gray-200 py-0.5">
-                        @forelse ($bmis as $bmi)
+                    <ul role="list"
+                        class=" py-2 space-y-3">
+                        @forelse ($bmis as $key=>$bmi)
                             @php
                                 $h = $bmi->height * $bmi->height;
                                 $w = $bmi->weight;
                                 $bmi_result = $w / $h;
                             @endphp
-                            <li wire:click="$set('status', $bmi->status)"
-                                class="py-2  px-2 border-b-2 border-green-500 rounded-lg hover:bg-gray-100 cursor-pointer">
+                            <li wire:key="{{ $bmi->id }}{{ $key }}"
+                                wire:click.prevent="showMealPlan('{{ $bmi->status }}','{{ $bmi->id }}')"
+                                class="py-2  px-2 rounded-lg hover:bg-gray-100 cursor-pointer border">
                                 <div class="flex space-x-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
                                         stroke-linejoin="round"
                                         class="feathe fill-current text-gray-700 feather-monitor">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                        <rect x="2"
+                                            y="3"
+                                            width="20"
+                                            height="14"
+                                            rx="2"
+                                            ry="2"></rect>
+                                        <line x1="8"
+                                            y1="21"
+                                            x2="16"
+                                            y2="21"></line>
+                                        <line x1="12"
+                                            y1="17"
+                                            x2="12"
+                                            y2="21"></line>
                                     </svg>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class=" text-green-900 font-bold">{{ round($bmi_result, 2) }}</h3>
                                             <p class="text-sm text-gray-500">{{ $bmi->created_at->format('M') }}</p>
                                         </div>
-                                        <p class="text-lg text-gray-800 font-bold uppercase">{{ $bmi->status }}</p>
+                                        <p class="text-lg text-gray-800 font-bold uppercase">{{ $bmi->status }}
+                                            @if ($key == 0)
+                                                (<span class="text-xs text-gray-500">latest</span>)
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
                             </li>
