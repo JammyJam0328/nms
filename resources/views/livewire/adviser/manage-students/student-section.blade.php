@@ -125,11 +125,11 @@
 
                                         <td x-data="{bmi:false}"
                                             class="flex px-6 py-4 space-x-2 text-sm font-medium text-right whitespace-nowrap">
-                                            <button type="button" @click="bmi=true"
-                                                wire:click.prevent="openBMI('{{ $student->student->id }}')"
+                                            <a href="{{route('adviser.student-bmi',['id'=>$student->id])}}" 
+                                                wire:click="openBMI('{{ $student->id }}')"
                                                 class="text-white bg-green-700  rounded-md  hover:bg-green-900">
                                                 <span class="px-1">BMI</span>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 wire:click.prevent="edit('{{ $student->student->id }}')"
                                                 class="text-yellow-500 hover:text-indigo-900">
@@ -235,7 +235,7 @@
                                                                         <a href="#" class="focus:outline-none">
                                                                             <span class="absolute inset-0"
                                                                                 aria-hidden="true"></span>
-                                                                            <p
+                                                                            <p wire:key="{{$student_id}}"
                                                                                 class="uppercase font-bold text-gray-700">
                                                                                 {{ $name }}</p>
                                                                             <p class="text-sm text-gray-500 truncate">
@@ -245,7 +245,7 @@
                                                                 </div>
 
                                                                 <!-- More people... -->
-                                                            </div>
+                                                            </div> 
                                                             <div class=" mt-4 flex">
                                                                 <div class=" w-4/12 border-r px-2">
                                                                     <div>
@@ -291,7 +291,7 @@
                                                                     <span class="text-red-400">*</span>
                                                                 </div> --}}
                                                                 <!-- This example requires Tailwind CSS v2.0+ -->
-                                                                    <livewire:student-bmi :sectionstudentid="$section_id"/>
+                                                                    {{-- <livewire:student-bmi :sectionstudentid="$section_id"/> --}}
   
                                                             </div>
                                                             </div>

@@ -253,17 +253,12 @@
 
                         <!-- Profile dropdown -->
                         <div class="ml-3 relative" x-data="{user:false}" @click.away="user=false">
-                            <div class="flex border border-l-2  items-center shadow-md border-gray-600  rounded-l-full">
-                                <span
-                                    class="px-2 ml-3 uppercase font-bold text-gray-800">{{ auth()->user()->name }}</span>
-                                <button @click="user=!user" type="button" class="bg-green-700 py-2 px-2 text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-chevron-down">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
+                            <button @click="user=!user" class="flex space-x-2 items-center hover:text-green-600">
+                                <span>{{auth()->user()->name}}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                  </svg>
+                            </button>
 
                             <!--
         Dropdown menu, show/hide based on menu state.

@@ -46,7 +46,7 @@ class StudentSection extends Component
     }
 
     public function add($id){
-        $bod = Student::find($id)->first()->date_of_birth;
+        $bod = Student::where('id',$id)->first()->date_of_birth;
         $current_age = Carbon::parse($bod)->diffInYears(Carbon::now());
         
         if (SectionStudent::where('section_id', $this->section_id)->where('student_id', '=', $id)->count() >= 1) {
@@ -57,7 +57,7 @@ class StudentSection extends Component
             ]);
         }else{
 
-            $stud = Student::find($id)->first();
+            $stud = Student::where('id',$id)->first();
             $stud->update([
                 'age' => $current_age,
             ]);
@@ -74,9 +74,12 @@ class StudentSection extends Component
     }
 
     public function openBMI($id){
-        $data = SectionStudent::find($id)->first();
-        // dd($data->student);
+
+        // dd();
+        $data = SectionStudent::where('id', $id)->first();
+       $this->student_id = $data->student->id;
         $this->name = $data->student->first_name." ".$data->student->last_name;
+        // dd($this->name);
         $this->sex = $data->student->sex;
         $this->section_id = $id;
 

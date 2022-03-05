@@ -14,4 +14,9 @@ class Section extends Model
     {
         return $this->belongsTo(Adviser::class);
     }
+
+    public function sectionstudents()
+    {
+        return $this->hasMany(SectionStudent::class);
+    }
 }

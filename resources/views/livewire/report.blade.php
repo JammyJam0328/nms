@@ -3,9 +3,20 @@
     <div class="mt-2 bg-white p-2 shadow-md rounded-md">
         <div class="flex items-center justify-between">
             <h1 class="font-bold text-gray-700">NUTRITIONAL STATUS REPORTS</h1>
-            <div>
-
-                <select id="location"
+            <div class="flex space-x-2">
+                @php
+                for ($i = 2020; $i <= 2040; $i++) {
+                    $school_years[] = $i . '-' . ($i + 1);
+                }
+            @endphp
+            <select wire:model="allyear"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <option>--Select Year--</option>
+                @foreach ($school_years as $key => $sy)
+                    <option value="{{ $sy }}">{{ $sy }}</option>
+                @endforeach
+            </select>
+                <select 
                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option>--Select Month--</option>
                     <option value="1">January</option>
@@ -79,7 +90,7 @@
 
 
                                     <!-- Even row -->
-                                    <tr class="bg-gray-70">
+                                    <tr class="bg-gray-100 border-b">
                                         <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 7
                                         </td>
                                         <td class="px-2  whitespace-nowrap text-sm text-gray-700">
@@ -87,7 +98,7 @@
                                                 <div class="flex">
                                                     <div
                                                         class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
-                                                        F</div>
+                                                        M</div>
                                                     <div
                                                         class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
                                                         100</div>
@@ -106,24 +117,375 @@
                                             </div>
                                         </td>
                                         <td class="px-2  whitespace-nowrap text-sm text-gray-700">
-                                            <div class="grid grid-cols-5 text-xs font-semibold text-center">
-                                                <div>Severely Wasted</div>
-                                                <div>Wasted</div>
-                                                <div>Normal</div>
-                                                <div>Overweight</div>
-                                                <div>Obese</div>
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="px-2  whitespace-nowrap text-sm text-gray-700">
-                                            <div class="grid grid-cols-4 text-xs font-semibold text-center">
-                                                <div>Severely Stunted</div>
-                                                <div>Stunted</div>
-                                                <div>Normal</div>
-                                                <div>Tall</div>
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
                                             </div>
                                         </td>
 
                                     </tr>
+                                    <tr class="bg-gray-100 border-b">
+                                        <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 8
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="grid grid-cols-1">
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        M</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        {{count($eigth_grade['Male'])}}</div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        F</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        {{count($eigth_grade['Female'])}}</div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                              @php
+                                                $eigth_grade_ids= [];
+                                                foreach ($eigth_grade['Female'] as $key => $eigth_grade_student) {
+                                                    $eigth_grade_ids = $eigth_grade_student->id;
+                                                }
+
+
+
+                                              @endphp
+                                              @dump($eigth_grade_ids)
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                   
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b">
+                                        <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 9
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="grid grid-cols-1">
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        M</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        F</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b">
+                                        <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 10
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="grid grid-cols-1">
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        M</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        F</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b">
+                                        <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 11
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="grid grid-cols-1">
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        M</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        F</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="bg-gray-100 border-b">
+                                        <td class="px-2  whitespace-nowrap text-sm font-medium text-gray-700">Grade 12
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="grid grid-cols-1">
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        M</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+                                                <div class="flex">
+                                                    <div
+                                                        class=" border-r-2 border-l-2 border-gray-300 flex font-bold text-gray-700 justify-center w-6/12 px-1">
+                                                        F</div>
+                                                    <div
+                                                        class=" w-6/12 border-r-2 border-gray-300 flex justify-center font-bold text-gray-700 px-1">
+                                                        100</div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-2  whitespace-nowrap text-sm text-gray-700">
+                                            <div class="flex flex-col">
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                                <div class="grid grid-cols-5 text-xs font-semibold text-center">
+                                                    <div>Severely Wasted</div>
+                                                    <div>Wasted</div>
+                                                    <div>Normal</div>
+                                                    <div>Overweight</div>
+                                                    <div>Obese</div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    
 
                                     <!-- More people... -->
                                 </tbody>
@@ -133,6 +495,10 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="bg-gray-100 mt-10">
+           {{-- @dump($eigth_grade) --}}
         </div>
     </div>
     <div class="mt-6 bg-white p-2 shadow-md rounded-md">

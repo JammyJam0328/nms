@@ -619,8 +619,7 @@
 
                         <div class="space-y-1"
                             x-data="{account: false}">
-                            <h1 class="pl-1 text-xs border-b text-gray-50">Manage</h1>
-
+                           
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 " -->
                             <button :class="account == true ? 'bg-white text-gray-700 border-green-900' : 'text-white'"
                                 @click="account = !account"
@@ -910,27 +909,13 @@
                         <div class="relative ml-3"
                             x-data="{user:false}"
                             @click.away="user=false">
-                            <div class="flex items-center border border-l-2 border-gray-600 rounded-l-full shadow-md">
-                                <span
-                                    class="px-2 ml-3 font-bold text-gray-800 uppercase">{{ auth()->user()->name }}</span>
-                                <button @click="user=!user"
-                                    type="button"
-                                    class="px-2 py-2 text-white bg-green-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="feather feather-chevron-down">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
-
+                          
+                            <button @click="user=!user" class="flex space-x-2 items-center hover:text-green-600">
+                                <span>{{auth()->user()->name}}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                  </svg>
+                            </button>
                             <!--
         Dropdown menu, show/hide based on menu state.
 
@@ -950,17 +935,7 @@
                                 aria-labelledby="user-menu-button"
                                 tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    id="user-menu-item-0">Your Profile</a>
-
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700"
-                                    role="menuitem"
-                                    tabindex="-1"
-                                    id="user-menu-item-1">Settings</a>
+                              
 
                                 <form method="POST"
                                     action="{{ route('logout') }}">

@@ -71,6 +71,8 @@ Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->
     })->name('adviser.my-students');
     Route::get('/my-students/section/{id}',  [AdviserController::class, 'section']
     )->name('adviser.my-section');
+    Route::get('/my-students/section/student/{id}',  [AdviserController::class, 'student']
+    )->name('adviser.student-bmi');
     Route::get('/monitor-students', function () {
         return view('adviser-pages.monitoring');
      })->name('adviser.monitoring');
