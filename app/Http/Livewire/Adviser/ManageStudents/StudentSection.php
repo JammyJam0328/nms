@@ -117,9 +117,9 @@ class StudentSection extends Component
         ]);
 
         if ($stud->sex == "male") {
-            $hfa = Heightage::getMale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height);
+            $hfa = Heightage::getMale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height*100);
         }else{
-           $hfa = Heightage::getFemale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height);
+           $hfa = Heightage::getFemale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height*100);
        
         }
 

@@ -827,8 +827,8 @@
                         <div class="space-y-1">
 
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 " -->
-                            <button
-                                class="flex items-end w-full py-2 pl-2 pr-1 font-bold text-left text-white uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
+                            <a href="{{route('admin.reports')}}"
+                                class="{{ Request::routeIs('admin.reports') ? 'bg-white text-gray-800 border-green-900' : '' }} flex items-end w-full py-2 pl-2 pr-1 font-bold text-left text-white uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
                                 aria-controls="sub-menu-1"
                                 aria-expanded="false">
                                 <!-- Heroicon name: outline/users -->
@@ -859,7 +859,7 @@
                                     REPORTS
                                 </span>
                                 <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
-                            </button>
+                            </a>
                             <!-- Expandable link section, show/hide based on state. -->
 
                         </div>
