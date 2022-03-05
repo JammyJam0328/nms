@@ -23,4 +23,9 @@ class Student extends Model
     {
         return $this->hasMany(StudentParent::class);
     }
+
+    public function monitorings()
+    {
+        return $this->hasMany(Monitoring::class);
+    }
 }
