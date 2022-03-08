@@ -60,7 +60,31 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
      Route::get('/reports',function(){
         return view('admin-pages.reports');
     })->name('admin.reports');
+    Route::get('/charts/nutritional-status',function(){
+        return view('admin-pages.nutritional-status');
+    })->name('admin.chart-status');
+    Route::get('/charts/hfa',function(){
+        return view('admin-pages.hfa');
+    })->name('admin.chart-hfa');
+    Route::get('/report-print',function(){
+        return view('admin-pages.report-print',[
+            'month' => request()->month,
+            'year' => request()->year,
+            'section' => request()->section,
+        ]);
+    })->name('admin.report-print');
+
+    Route::get('/report-print-all',function(){
+        return view('admin-pages.report-print-all',[
+            'month' => request()->month,
+            'year' => request()->year,
+            
+        ]);
+    })->name('admin.report-print-all');
+
+
 });
+    
 
 Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->group(function () {
     Route::get('/', function () {
