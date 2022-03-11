@@ -12,10 +12,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 emerald: colors.emerald,
+            },
+            backgroundImage: {
+                mainback: "url('/images/bg.svg')",
             },
         },
     },

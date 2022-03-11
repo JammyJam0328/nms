@@ -5,13 +5,19 @@
     {{-- @dump($bmisevereunderweight) --}}
     <div class="flex space-x-5">
         <div class="w-6/12">
-            <h1 class="font-bold uppercase text-white bg-green-400 px-2 text-xl">Male</h1>
+            <h1 class="font-bold uppercase text-white bg-green-400 px-2 p-2  flex justify-between text-xl">
+                <span>Male</span>
+                <button class="px-2 rounded-md bg-gray-700 text-sm border">Print</button>
+            </h1>
             <div class="bg-white shadow-lg px-3 py-2">
                 <canvas id="myMale" width="1000" height="1000"></canvas>
             </div>
         </div>
         <div class=" w-6/12">
-            <h1 class="font-bold uppercase text-white bg-green-400 px-2 text-xl">Female</h1>
+            <h1 class="font-bold uppercase text-white bg-green-400 px-2 p-2  flex justify-between text-xl">
+                <span>Female</span>
+                <button class="px-2 rounded-md bg-gray-700 text-sm border">Print</button>
+            </h1>
             <div class="bg-white shadow-lg px-3 py-2">
                 <canvas id="myFemale" width="1000" height="1000"></canvas>
             </div>
