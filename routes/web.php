@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdviserController;
+use App\Http\Controllers\ParentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
             break;
         case 'student':
             return redirect()->route('student.dashboard');
+            break;
+        case 'parent':
+            return redirect()->route('parent.dashboard');
             break;
         default:
             return redirect('/login');
@@ -60,7 +64,34 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
      Route::get('/reports',function(){
         return view('admin-pages.reports');
     })->name('admin.reports');
+    Route::get('/charts/nutritional-status',function(){
+        return view('admin-pages.nutritional-status');
+    })->name('admin.chart-status');
+    Route::get('/charts/nutritional-status/print',function(){
+        return view('admin-pages.nutritional-status-print');
+    })->name('admin.chart-status-print');
+    Route::get('/charts/hfa',function(){
+        return view('admin-pages.hfa');
+    })->name('admin.chart-hfa');
+    Route::get('/report-print',function(){
+        return view('admin-pages.report-print',[
+            'month' => request()->month,
+            'year' => request()->year,
+            'section' => request()->section,
+        ]);
+    })->name('admin.report-print');
+
+    Route::get('/report-print-all',function(){
+        return view('admin-pages.report-print-all',[
+            'month' => request()->month,
+            'year' => request()->year,
+            
+        ]);
+    })->name('admin.report-print-all');
+
+
 });
+    
 
 Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->group(function () {
     Route::get('/', function () {
@@ -86,7 +117,9 @@ Route::prefix('student')->middleware(['auth:sanctum', 'verified','isStudent'])->
    
     
 });
-
+Route::prefix('parent')->middleware(['auth:sanctum', 'verified','isParent'])->group(function () {
+    Route::get('/', [ParentController::class,'index'])->name('parent.dashboard');
+});
 
 use App\Helper\GetBmi;
 

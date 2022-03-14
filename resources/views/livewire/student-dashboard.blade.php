@@ -1,6 +1,6 @@
 <div>
     <div
-        class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+        class="grid max-w-3xl grid-cols-1 gap-6 mx-auto mt-8 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
         <div class="space-y-6 lg:col-start-1 lg:col-span-2">
             <!-- Description list-->
             <section aria-labelledby="applicant-information-title">
@@ -91,14 +91,14 @@
                                 @endforeach
                                 <div>
                                     @if (in_array([...$meal][0]->id, $dones))
-                                        <div class="text-white bg-gray-600 p-1 rounded-md text-center">
+                                        <div class="p-1 text-center text-white bg-gray-600 rounded-md">
                                             Done
                                         </div>
                                     @else
                                         <div class="my-2">
                                             <button type="button"
                                                 wire:click.prevent="done('{{ [...$meal][0]->id }}')"
-                                                class="text-white bg-green-600 p-1 rounded-md focus:bg-green-500">
+                                                class="p-1 text-white bg-green-600 rounded-md focus:bg-green-500">
                                                 Mark as done
                                             </button>
                                         </div>
@@ -112,14 +112,14 @@
         </div>
         <section aria-labelledby="timeline-title"
             class="lg:col-start-3 lg:col-span-1">
-            <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+            <div class="px-4 py-5 bg-white shadow sm:rounded-lg sm:px-6">
                 <h2 id="timeline-title"
-                    class="text-lg font-extrabold border-b text-gray-900">MY BMIs</h2>
+                    class="text-lg font-extrabold text-gray-900 border-b">MY BMIs</h2>
 
                 <!-- Activity Feed -->
                 <div>
                     <ul role="list"
-                        class=" py-2 space-y-3">
+                        class="py-2 space-y-3 ">
                         @forelse ($bmis as $key=>$bmi)
                             @php
                                 $h = $bmi->height * $bmi->height;
@@ -128,7 +128,7 @@
                             @endphp
                             <li wire:key="{{ $bmi->id }}{{ $key }}"
                                 wire:click.prevent="showMealPlan('{{ $bmi->status }}','{{ $bmi->id }}')"
-                                class="py-2  px-2 rounded-lg hover:bg-gray-100 cursor-pointer border">
+                                class="px-2 py-2 border rounded-lg cursor-pointer hover:bg-gray-100">
                                 <div class="flex space-x-3">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         width="24"
@@ -139,7 +139,7 @@
                                         stroke-width="2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        class="feathe fill-current text-gray-700 feather-monitor">
+                                        class="text-gray-700 fill-current feathe feather-monitor">
                                         <rect x="2"
                                             y="3"
                                             width="20"
@@ -157,10 +157,10 @@
                                     </svg>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
-                                            <h3 class=" text-green-900 font-bold">{{ round($bmi_result, 2) }}</h3>
+                                            <h3 class="font-bold text-green-900 ">{{ round($bmi_result, 2) }}</h3>
                                             <p class="text-sm text-gray-500">{{ $bmi->created_at->format('M') }}</p>
                                         </div>
-                                        <p class="text-lg text-gray-800 font-bold uppercase">{{ $bmi->status }}
+                                        <p class="text-lg font-bold text-gray-800 uppercase">{{ $bmi->status }}
                                             @if ($key == 0)
                                                 (<span class="text-xs text-gray-500">latest</span>)
                                             @endif
@@ -174,9 +174,9 @@
                         <!-- More items... -->
                     </ul>
                 </div>
-                <div class="mt-6 flex flex-col justify-stretch">
+                <div class="flex flex-col mt-6 justify-stretch">
                     <button type="button"
-                        class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Advance
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Advance
                         to offer</button>
                 </div>
             </div>

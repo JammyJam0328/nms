@@ -140,4 +140,9 @@ class StudentSection extends Component
         // dd('show');
       
     }
+
+    public function deleteStudent($id){
+        
+        SectionStudent::where('id', $id)->delete();
+    }
 }

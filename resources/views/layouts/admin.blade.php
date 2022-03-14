@@ -22,6 +22,7 @@
     @livewireStyles
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script src="{{ mix('js/app.js') }}"
         defer></script>
 </head>
@@ -756,7 +757,7 @@
                             <button :class="chart == true ? 'bg-white text-gray-700 border-green-900' : 'text-white'"
                                 @click="chart = !chart"
                                 type="button"
-                                class="flex items-end w-full py-2 pl-2 pr-1 font-bold text-left uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
+                                class="{{ Request::routeIs('admin.chart-status') || Request::routeIs('admin.chart-hfa') ? 'bg-white text-gray-800 border-green-900' : '' }} flex items-end w-full py-2 pl-2 pr-1 font-bold text-left uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
                                 aria-controls="sub-menu-1"
                                 aria-expanded="false">
                                 <!-- Heroicon name: outline/users -->
@@ -799,8 +800,8 @@
                                 x-collapse
                                 class="bg-white divide-y shadow rounded-b-md "
                                 id="sub-menu-1">
-                                <a href="#"
-                                    class="flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
+                                <a href="{{route('admin.chart-status')}}"
+                                    class="{{ Request::routeIs('admin.chart-status') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
                                     <!-- Heroicon name: outline/users -->
 
                                     <span class="flex-1 pl-10 font-bold uppercase ">
@@ -810,8 +811,8 @@
                                     <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
 
                                 </a>
-                                <a href="#"
-                                    class="flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
+                                <a href="{{route('admin.chart-hfa')}}"
+                                    class="{{ Request::routeIs('admin.chart-hfa') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
                                     <!-- Heroicon name: outline/users -->
 
                                     <span class="flex-1 pl-10 font-bold uppercase ">
@@ -970,6 +971,8 @@
 
 
     @livewireScripts
+
+    @stack('scripts')
 </body>
 
 </html>
