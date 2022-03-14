@@ -36,7 +36,7 @@
 
 
                 </select>
-                <a href="{{ route('admin.report-print-all', ['month' => $allmonth, 'year' => $allyear]) }}"
+                <a href="{{ route('admin.report-print-all', ['month' => $allmonth, 'year' => $allyear]) }}" target="_blank"
                     class="flex bg-gray-700 mt-1 text-white rounded-md text-sm items-center space-x-1 px-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -555,7 +555,7 @@
 
 
                 </button>
-                <a href="{{ route('admin.report-print', ['month' => $month, 'year' => $year, 'section' => $selected_section]) }}"
+                <a href="{{ route('admin.report-print', ['month' => $month, 'year' => $year, 'section' => $selected_section]) }}" target="_blank"
                     class="flex bg-gray-700 mt-1 text-white rounded-md text-sm items-center space-x-1 px-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

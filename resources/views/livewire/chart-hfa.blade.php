@@ -1,8 +1,16 @@
 <div>
-    {{-- <div class="h-96 w-96">
-        
-      </div> --}}
-    {{-- @dump($bmisevereunderweight) --}}
+    <div class="flex mb-4 justify-end">
+        <a href="{{route('admin.chart-status-print',['type'=>'hfa'])}}" target="_blank" class="bg-gray-700 px-2 text-white p-1 flex space-x-1 rounded-md" href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-printer">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span class="font-bold">Print</span>
+        </a>
+    </div>
     <div class="flex space-x-5">
         <div class="w-6/12">
             <h1 class="font-bold uppercase text-white bg-green-400 px-2 text-xl">Male</h1>

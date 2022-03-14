@@ -63,6 +63,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
     Route::get('/charts/nutritional-status',function(){
         return view('admin-pages.nutritional-status');
     })->name('admin.chart-status');
+    Route::get('/charts/nutritional-status/print',function(){
+        return view('admin-pages.nutritional-status-print');
+    })->name('admin.chart-status-print');
     Route::get('/charts/hfa',function(){
         return view('admin-pages.hfa');
     })->name('admin.chart-hfa');
