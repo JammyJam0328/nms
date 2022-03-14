@@ -86,3 +86,11 @@ Route::prefix('student')->middleware(['auth:sanctum', 'verified','isStudent'])->
    
     
 });
+
+
+use App\Helper\GetBmi;
+
+Route::get('/test',function(){
+    $data =  GetBmi::getGradeSeventh('2021');
+    dd($data);
+});
