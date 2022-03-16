@@ -1265,7 +1265,7 @@ Class Heightage{
             }
         }
         
-        if ($year == 19 && $months == 0) {
+        if ($year >= 19) {
             if ($height <=154.5) {
                return "Severely stunted";
             }
@@ -2545,7 +2545,7 @@ Class Heightage{
                 }
             }
 
-            if($year==19 && $months==0){
+            if($year>=19){
                 if($height<=143.4){
                     return "Severely stunted";
                 }
