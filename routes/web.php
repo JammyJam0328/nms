@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdviserController;
 use App\Http\Controllers\ParentController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,8 +89,11 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','isAdmin'])->grou
             
         ]);
     })->name('admin.report-print-all');
+     Route::get('/monitoring',function(){
+        return view('admin-pages.monitoring');
+     })->name('admin.monitoring');
 
-
+     Route::get('/monitor/student/{id}',[AdminController::class,'monitorstudent'])->name('admin.monitoring-student');
 });
     
 
@@ -107,6 +111,7 @@ Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->
     Route::get('/monitor-students', function () {
         return view('adviser-pages.monitoring');
      })->name('adviser.monitoring');
+
     
 });
 

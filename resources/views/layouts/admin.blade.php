@@ -620,7 +620,7 @@
 
                         <div class="space-y-1"
                             x-data="{account: false}">
-                           
+
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 " -->
                             <button :class="account == true ? 'bg-white text-gray-700 border-green-900' : 'text-white'"
                                 @click="account = !account"
@@ -682,7 +682,7 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                        
+
                                     </a>
                                     <a href="{{ route('admin.parents') }}"
                                         class="{{ Request::routeIs('admin.parents') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
@@ -693,7 +693,7 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                       
+
                                     </a>
                                     <a href="{{ route('admin.students') }}"
                                         class="{{ Request::routeIs('admin.students') ? 'bg-green-200' : '' }} text-gray-600  rounded-b-md hover:bg-green-50 group flex items-center px-2 py-3 text-sm font-medium">
@@ -704,7 +704,7 @@
                                         </span>
 
                                         <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
-                                       
+
                                     </a>
 
 
@@ -750,6 +750,43 @@
                             <!-- Expandable link section, show/hide based on state. -->
 
                         </div>
+
+                        <div class="space-y-1">
+                            <a href="{{ route('admin.monitoring') }}"
+                                class="{{ Request::routeIs('admin.monitoring') ? 'bg-white text-gray-800 border-green-900' : '' }} hover:bg-white text-white  hover:text-gray-700 border-b-2 group w-full flex items-end uppercase pl-2 pr-1 py-2 text-left  font-bold rounded-md focus:outline-none"
+                                aria-controls="sub-menu-1"
+                                aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="flex-shrink-0 w-6 h-6 mr-3 feather feather-package">
+                                    <line x1="16.5"
+                                        y1="9.4"
+                                        x2="7.5"
+                                        y2="4.21"></line>
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12"
+                                        y1="22.08"
+                                        x2="12"
+                                        y2="12"></line>
+                                </svg>
+                                <span class="flex-1">
+                                    Monitoring
+                                </span>
+                                <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
+                            </a>
+                            <!-- Expandable link section, show/hide based on state. -->
+
+                        </div>
                         <div class="space-y-1"
                             x-data="{chart: false}">
 
@@ -757,7 +794,7 @@
                             <button :class="chart == true ? 'bg-white text-gray-700 border-green-900' : 'text-white'"
                                 @click="chart = !chart"
                                 type="button"
-                                class="{{ Request::routeIs('admin.chart-status') || Request::routeIs('admin.chart-hfa') ? 'bg-white text-gray-800 border-green-900' : '' }} flex items-end w-full py-2 pl-2 pr-1 font-bold text-left uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
+                                class="{{ Request::routeIs('admin.chart-status') || Request::routeIs('admin.chart-hfa')? 'bg-white text-gray-800 border-green-900': '' }} flex items-end w-full py-2 pl-2 pr-1 font-bold text-left uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
                                 aria-controls="sub-menu-1"
                                 aria-expanded="false">
                                 <!-- Heroicon name: outline/users -->
@@ -800,7 +837,7 @@
                                 x-collapse
                                 class="bg-white divide-y shadow rounded-b-md "
                                 id="sub-menu-1">
-                                <a href="{{route('admin.chart-status')}}"
+                                <a href="{{ route('admin.chart-status') }}"
                                     class="{{ Request::routeIs('admin.chart-status') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
                                     <!-- Heroicon name: outline/users -->
 
@@ -811,7 +848,7 @@
                                     <!-- Current: "bg-white", Default: "bg-gray-100 group-hover:bg-gray-200" -->
 
                                 </a>
-                                <a href="{{route('admin.chart-hfa')}}"
+                                <a href="{{ route('admin.chart-hfa') }}"
                                     class="{{ Request::routeIs('admin.chart-hfa') ? 'bg-green-200' : '' }} flex items-center px-2 py-3 text-sm font-medium text-gray-600 hover:bg-green-50 group">
                                     <!-- Heroicon name: outline/users -->
 
@@ -827,7 +864,7 @@
                         <div class="space-y-1">
 
                             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 " -->
-                            <a href="{{route('admin.reports')}}"
+                            <a href="{{ route('admin.reports') }}"
                                 class="{{ Request::routeIs('admin.reports') ? 'bg-white text-gray-800 border-green-900' : '' }} flex items-end w-full py-2 pl-2 pr-1 font-bold text-left text-white uppercase border-b-2 rounded-md hover:bg-white hover:text-gray-700 group focus:outline-none"
                                 aria-controls="sub-menu-1"
                                 aria-expanded="false">
@@ -910,12 +947,18 @@
                         <div class="relative ml-3"
                             x-data="{user:false}"
                             @click.away="user=false">
-                          
-                            <button @click="user=!user" class="flex space-x-2 items-center hover:text-green-600">
-                                <span>{{auth()->user()->name}}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                  </svg>
+
+                            <button @click="user=!user"
+                                class="flex items-center space-x-2 hover:text-green-600">
+                                <span>{{ auth()->user()->name }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
                             </button>
                             <!--
         Dropdown menu, show/hide based on menu state.
@@ -936,7 +979,7 @@
                                 aria-labelledby="user-menu-button"
                                 tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                              
+
 
                                 <form method="POST"
                                     action="{{ route('logout') }}">

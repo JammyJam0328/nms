@@ -172,7 +172,6 @@
                                                             {{ [...$meal_plan][0]->meal_time }},
                                                             {{ [...$meal_plan][1]->meal_time }},
                                                             {{ [...$meal_plan][2]->meal_time }}
-
                                                         </td>
                                                         </td>
                                                         <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
