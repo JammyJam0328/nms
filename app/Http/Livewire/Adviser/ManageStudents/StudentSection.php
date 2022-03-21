@@ -87,7 +87,7 @@ class StudentSection extends Component
     
     public function showBMI(){
         $stud = Student::where('id', $this->section_id)->first();
-        // dd();
+        
         // $hfa = Heightage::getFemale("17","6","174");   
         
         
@@ -119,7 +119,7 @@ class StudentSection extends Component
             'weight' => 'required',
         ]);
 
-        if ($stud->sex == "male") {
+        if ($stud->sex == "Male") {
             $hfa = Heightage::getMale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height*100);
         }else{
            $hfa = Heightage::getFemale(Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%y'),Carbon::parse($stud->date_of_birth)->diff(Carbon::now())->format('%m'),$this->height*100);

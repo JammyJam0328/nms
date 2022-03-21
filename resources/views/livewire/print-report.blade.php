@@ -1,4 +1,12 @@
 <div>
+    <div class="flex mb-10 flex-col items-center">
+        <img src="{{asset('images/madandinglogo.jpg')}}" class="h-14" alt="">
+        <h1 class="text-sm">Department of Education</h1>
+        <h1 class="text-sm">Bureau of Learner Support Services</h1>
+        <h1 class="text-sm font-semibold">SCHOOL HEALTH DIVISION</h1>
+        <h1 class="text-sm font-semibold">NUTRITIONAL STATUS REPORT FOR MADANDING NATIONAL HIGH SCHOOL</h1>
+        
+    </div>
   <div class="flex justify-between px-4">
       <span class="font-bold uppercase">Month of {{DateTime::createFromFormat('!m', $month)->format('F')}}</span>
     <span class="font-bold">Grade: {{$grade_level}}-{{$section}}</span>
