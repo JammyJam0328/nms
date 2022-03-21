@@ -119,6 +119,9 @@ Route::prefix('student')->middleware(['auth:sanctum', 'verified','isStudent'])->
     Route::get('/', function () {
        return view('student-pages.dashboard');
     })->name('student.dashboard');
+    Route::get('/profile', function () {
+       return view('student-pages.profile');
+    })->name('student.profile');
    
     
 });
