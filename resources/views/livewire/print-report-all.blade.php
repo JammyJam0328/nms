@@ -1,5 +1,16 @@
 <div>
-    <div class="flex mb-5 justify-between px-4">
+    <div class="flex justify-center">
+        <img src="{{asset('images/deped.png')}}" class="h-14" alt="">
+      <div class="flex flex-col items-center">
+          <h1 class="text-sm">Department of Education</h1>
+          <h1 class="text-sm">Bureau of Learner Support Services</h1>
+          <h1 class="text-sm font-semibold">SCHOOL HEALTH DIVISION</h1>
+          <h1 class="text-sm font-semibold">NUTRITIONAL STATUS REPORT FOR MADANDING NATIONAL HIGH SCHOOL</h1>
+         
+      </div>
+      <img src="{{asset('images/madandinglogo.jpg')}}" class="h-14" alt="">
+    </div>
+    <div class="flex mb-5 mt-10 justify-between px-4">
         <h1> <span class="font-bold uppercase">Month of {{DateTime::createFromFormat('!m', $allmonth)->format('F')}}</span></h1>
         <h1>{{$allyear}} </h1>
     </div>
@@ -16,7 +27,7 @@
                 </th>
                 <th width="500" scope="col"
                     class="px-2  text-left text-xs font-bold text-gray-700 uppercase">
-                    <div class="">
+                    <div class="mb-4">
                         <div class="border-b flex-1 py-1 text-white bg-gray-700">
                             <h1 class="text-center">BODY MASS INDEX (BMI)</h1>
                         </div>

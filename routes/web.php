@@ -108,9 +108,7 @@ Route::prefix('adviser')->middleware(['auth:sanctum', 'verified','isAdviser'])->
     )->name('adviser.my-section');
     Route::get('/my-students/section/student/{id}',  [AdviserController::class, 'student']
     )->name('adviser.student-bmi');
-    Route::get('/monitor-students', function () {
-        return view('adviser-pages.monitoring');
-     })->name('adviser.monitoring');
+    Route::get('/monitor-students/{id}', [AdviserController::class,'monitoring'])->name('adviser.monitoring');
 
     
 });
@@ -119,6 +117,9 @@ Route::prefix('student')->middleware(['auth:sanctum', 'verified','isStudent'])->
     Route::get('/', function () {
        return view('student-pages.dashboard');
     })->name('student.dashboard');
+    Route::get('/profile', function () {
+       return view('student-pages.profile');
+    })->name('student.profile');
    
     
 });

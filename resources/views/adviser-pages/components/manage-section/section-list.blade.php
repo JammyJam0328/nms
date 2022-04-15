@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
         @foreach ($sections as $key => $section)
-            <div x-on:click="window.location.href='{{route('adviser.my-section',['id'=>$section->id])}}'" wire:key="{{ $key }}" 
+            <div  wire:key="{{ $key }}" 
                 class="relative  border border-green-400 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 ">
                 <div class="flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +33,13 @@
                     </a>
                 </div>
                 <div class="flex space-x-1 ">
+                    <button type="button"
+                    x-on:click="window.location.href='{{route('adviser.my-section',['id'=>$section->id])}}'"
+                        class="p-2 border text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                          </svg>
+                    </button>
                     <button type="button"
                         wire:click="editSection('{{ $section->id }}')"
                         class="p-2 border text-yellow-400">

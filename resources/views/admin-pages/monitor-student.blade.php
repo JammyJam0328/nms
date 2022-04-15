@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div>
-        <div class="w-full bg-white border border-gray-300 rounded-md p-4">
+        <div class="w-full p-4 bg-white border border-gray-300 rounded-md">
             <div class="grid space-y-2">
                 <span>Student : <span class="font-bold text-gray-700">{{ $student->first_name }}
                         {{ $student->middle_name }}

@@ -1,15 +1,19 @@
 <div>
-   <div class="flex flex-col items-center">
-       <h1 class="text-sm">Department of Education</h1>
-       <h1 class="text-sm">Bureau of Learner Support Services</h1>
-       <h1 class="text-sm font-semibold">SCHOOL HEALTH DIVISION</h1>
-       <h1 class="text-sm font-semibold">NUTRITIONAL STATUS REPORT FOR MADANDING NATIONAL HIGH SCHOOL</h1>
-       @if ($type=='bmi')
-       <h1 class="text-sm font-bold">(BODY MASS INDEX)</h1>
-       @else
-         <h1 class="text-sm font-bold">(HEIGHT FOR AGE)</h1>
-       @endif
-   </div>
+  <div class="flex justify-center">
+      <img src="{{asset('images/deped.png')}}" class="h-14" alt="">
+    <div class="flex flex-col items-center">
+        <h1 class="text-sm">Department of Education</h1>
+        <h1 class="text-sm">Bureau of Learner Support Services</h1>
+        <h1 class="text-sm font-semibold">SCHOOL HEALTH DIVISION</h1>
+        <h1 class="text-sm font-semibold">NUTRITIONAL STATUS REPORT FOR MADANDING NATIONAL HIGH SCHOOL</h1>
+        @if ($type=='bmi')
+        <h1 class="text-sm font-bold">(BODY MASS INDEX)</h1>
+        @else
+          <h1 class="text-sm font-bold">(HEIGHT FOR AGE)</h1>
+        @endif
+    </div>
+    <img src="{{asset('images/madandinglogo.jpg')}}" class="h-14" alt="">
+  </div>
 
    @if ($type=='bmi')
    <div class="mt-10">
@@ -18,7 +22,7 @@
      <canvas id="myMalebmi" width="1000" height="1000"></canvas>
  </div>
 </div>
-<div class="mt-10">
+<div class="mt-64">
     <div class="flex uppercase text-xl font-bold">Female</div>
     <div class=" wrapper shadow-lg px-3 py-2">
      <canvas id="myFemalebmi" width="1000" height="1000"></canvas>
@@ -31,7 +35,7 @@
      <canvas id="myMalehfa" width="1000" height="1000"></canvas>
  </div>
 </div>
-<div class="mt-10">
+<div class="mt-64">
     <div class="flex uppercase text-xl font-bold">Female</div>
     <div class=" wrapper shadow-lg px-3 py-2">
      <canvas id="myFemalehfa" width="1000" height="1000"></canvas>
